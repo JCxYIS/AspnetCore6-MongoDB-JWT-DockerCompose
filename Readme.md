@@ -3,7 +3,22 @@ Asp.net core 6 + MongoDB + JWT + Docker Compose
 ## Setup
 - Clone this project
 - Modify env file in `env_mongo.env`
-- (Production Enviroment) Comment out or delete `- ASPNETCORE_ENVIRONMENT=Development` in `docker-compose.override.yml`
+- Run the equivalent commands to start the program
+#### Development 
+Open Visual Studio and click the mf ▶️ button *(Recommended)*,
+or run manully: 
+```
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+```
+#### Production
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
+
+## Volumes
+Runtime data will be stored in `.runtime` folder, including
+- `.runtime/db/` 
 
 ## References
 - 如何在 ASP.NET Core 6 使用 Token-based 身份認證與授權 (JWT) https://blog.miniasp.com/post/2022/02/13/How-to-use-JWT-token-based-auth-in-aspnet-core-60
