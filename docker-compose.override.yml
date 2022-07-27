@@ -5,6 +5,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80 #;https://+:443
+      - LANG=C.UTF-8
     ports:
       - "80:80"
       - "443:443"
@@ -13,7 +14,6 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     env_file:
       - env_mongo.env
-      - env_settings.env
   mongodb:
     restart: always
     volumes:
