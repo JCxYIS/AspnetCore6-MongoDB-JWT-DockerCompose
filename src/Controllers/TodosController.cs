@@ -18,7 +18,12 @@ namespace AspWebsite.Controllers
             _crudService = crudService;
         }
 
+        
         // GET: api/<TodosController>
+        /// <summary>
+        /// Sample Get
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<List<TodoModel>> GetAsync()
         {

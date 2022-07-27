@@ -3,6 +3,7 @@ using AspWebsite.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -85,6 +86,10 @@ builder.Services.AddSwaggerGen(c =>
     };
     OpenApiSecurityRequirement securityRequirements = new OpenApiSecurityRequirement() { { securityScheme, new string[] { } }, };
     c.AddSecurityRequirement(securityRequirements);
+
+    // Swagger XML Comment support
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 var app = builder.Build();

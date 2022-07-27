@@ -49,7 +49,7 @@ namespace AspWebsite.Services
         /// <returns></returns>
         public async Task<ResponseModel<User>> ValidateUser(string userName, string password)
         {
-            var user = (await _users.FindAsync(u => u.name == userName)).FirstOrDefault();
+            var user = (await _users.FindAsync(u => u.username == userName)).FirstOrDefault();
             if (user == null)
             {
                 return new ResponseModel<User>(false, "No such account");

@@ -7,6 +7,10 @@ namespace AspWebsite.Datas
 {
     public class User : MongoModel
     {
+        // [BsonId, BsonRepresentation(BsonType.ObjectId)]
+        // [JsonIgnore]
+        // public string id { get; set; } = "";
+        
         public string username { get; set; } = "";
 
         [JsonIgnore]

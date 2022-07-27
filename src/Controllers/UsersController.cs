@@ -22,6 +22,10 @@ namespace AspWebsite.Controllers
         }
 
         // GET: api/<UsersController>
+        /// <summary>
+        /// Get all users, need to be logged in to perform this action. 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("all")]
         [Authorize]
         public async Task<List<User>> GetAllUsers()
@@ -29,6 +33,12 @@ namespace AspWebsite.Controllers
             return await _userService.GetAllUsers();
         }
 
+        /// <summary>
+        /// Attempt to login, if success, return token
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpPost("/api/login")]
         public async Task<IActionResult> Login(string userName, string password)
         {
@@ -47,8 +57,15 @@ namespace AspWebsite.Controllers
         //    return "value";
         //}
 
-        // POST api/<UsersController>
-        [HttpPost]
+        // POST api/signup
+        /// <summary>
+        /// Create a account
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [HttpPost("/api/signup")]
         public async Task<IActionResult> PostAsync(string username, string password, string name)
         {
             var result = await _userService.CreateUser(username, password, new User { name = name });
