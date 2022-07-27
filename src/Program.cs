@@ -1,3 +1,4 @@
+using AspWebsite.Datas;
 using AspWebsite.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -18,6 +19,7 @@ builder.Services.AddCors(option =>
 builder.Services.AddSingleton<DatabaseService>();
 builder.Services.AddSingleton<JwtService>();
 builder.Services.AddSingleton<UserService>();
+builder.Services.AddSingleton<CRUDService<TodoModel>>();
 
 // JWT, see https://blog.miniasp.com/post/2022/02/13/How-to-use-JWT-token-based-auth-in-aspnet-core-60
 builder.Services

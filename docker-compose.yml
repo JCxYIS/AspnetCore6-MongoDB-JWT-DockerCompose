@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  aspwebsite:
+    image: ${DOCKER_REGISTRY-}aspwebsite
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+  mongodb:
+    image: mongo

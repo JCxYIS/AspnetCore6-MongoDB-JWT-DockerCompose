@@ -1,15 +1,12 @@
-﻿using MongoDB.Bson;
+﻿using AspWebsite.Models;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
 
-namespace AspWebsite.Models
+namespace AspWebsite.Datas
 {
-    public class User
+    public class User : MongoModel
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string id { get; set; } = "";
-
         public string username { get; set; } = "";
 
         [JsonIgnore]

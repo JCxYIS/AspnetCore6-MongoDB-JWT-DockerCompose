@@ -12,24 +12,24 @@ namespace AspWebsite.Services
         /// <summary>
         /// Default Mongo Database
         /// </summary>
-        public readonly IMongoDatabase Database; // { get; private set; }
+        public readonly IMongoDatabase MainDatabase; // { get; private set; }
 
         public DatabaseService(IConfiguration configuration)
         {
             // Get connection info
             //var mongoUrl = configuration.GetValue<string>("MongoDB:Url");
             var mongoName = configuration.GetValue("MongoDB:Name", "main");
-            var mongoUrl = Environment.GetEnvironmentVariable("MANGO_URL"); // we store it in settings.env file better keep it safe
+            var mongoUrl = Environment.GetEnvironmentVariable("MONGO_URL"); // we store it in env file
             if (mongoUrl == null)
-                throw new Exception("MANGO_URL is null");
+                throw new Exception("MONGO_URL is null");
 
             // Connect
             var settings = MongoClientSettings.FromConnectionString(mongoUrl);
-            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            //settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             Client = new MongoClient(settings);
 
             // Test DB
-            Database = Client.GetDatabase(mongoName);
+            MainDatabase = Client.GetDatabase(mongoName);
             Console.WriteLine("Database Connected");
         }
     }

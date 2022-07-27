@@ -7,17 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["bloglist-backend-cs/bloglist-backend-cs.csproj", "bloglist-backend-cs/"]
-RUN dotnet restore "bloglist-backend-cs/bloglist-backend-cs.csproj"
+COPY ["src/AspWebsite.csproj", "src/"]
+RUN dotnet restore "src/AspWebsite.csproj"
 COPY . .
-WORKDIR "/src/bloglist-backend-cs"
-RUN dotnet build "bloglist-backend-cs.csproj" -c Release -o /app/build
+WORKDIR "/src/src"
+RUN dotnet build "AspWebsite.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "bloglist-backend-cs.csproj" -c Release -o /app/publish
+RUN dotnet publish "AspWebsite.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-#ENTRYPOINT ["dotnet", "bloglist-backend-cs.dll"]
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet bloglist-backend-cs.dll
+ENTRYPOINT ["dotnet", "AspWebsite.dll"]

@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System.Text;
 using AspWebsite.Models;
+using AspWebsite.Datas;
 
 namespace AspWebsite.Services
 {
@@ -11,7 +12,7 @@ namespace AspWebsite.Services
 
         public UserService(DatabaseService database)
         {
-            _users = database.Database.GetCollection<User>("Users");
+            _users = database.MainDatabase.GetCollection<User>("Users");
         }
 
         /// <summary>
@@ -22,10 +23,10 @@ namespace AspWebsite.Services
         public async Task<ResponseModel> CreateUser(string userName, string password, User? userData = null)
         {
             // validate
-            if (password.Length < 8)
-                return new ResponseModel(false, "Password must be at least 8 characters long");
+            //if (password.Length < 8)
+            //    return new ResponseModel(false, "Password must be at least 8 characters long");
             if ((await _users.FindAsync(u => u.username == userName)).Any())
-                return new ResponseModel(false, "User with that username already exists");
+                return new ResponseModel(false, $"User with that username ({userName}) already exists");
 
             // new user model
             User user = userData == null ? new User() : userData;

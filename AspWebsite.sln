@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspnetJwt", "src\AspnetJwt.csproj", "{08DB4D10-D257-4520-A4DC-77B8FDDD879C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspWebsite", "src\AspWebsite.csproj", "{08DB4D10-D257-4520-A4DC-77B8FDDD879C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A5992298-A45C-4864-9B07-66D4DD9A0D1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{08DB4D10-D257-4520-A4DC-77B8FDDD879C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08DB4D10-D257-4520-A4DC-77B8FDDD879C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08DB4D10-D257-4520-A4DC-77B8FDDD879C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5992298-A45C-4864-9B07-66D4DD9A0D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5992298-A45C-4864-9B07-66D4DD9A0D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5992298-A45C-4864-9B07-66D4DD9A0D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5992298-A45C-4864-9B07-66D4DD9A0D1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
