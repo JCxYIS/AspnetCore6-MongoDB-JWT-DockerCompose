@@ -18,6 +18,8 @@ namespace AspWebsite.Services
         /// <summary>
         /// Create a user in DB.
         /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         /// <param name="userData">Initial User Data, id, password will be overwritten</param>
         /// <returns></returns>
         public async Task<ResponseModel> CreateUser(string userName, string password, User? userData = null)

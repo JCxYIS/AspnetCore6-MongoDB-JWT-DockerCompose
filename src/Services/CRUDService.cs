@@ -5,7 +5,7 @@ namespace AspWebsite.Services
 {
     /// <summary>
     /// CRUD Repository Service for mongodb.
-    /// You can inherit this class to extend the function, or directly add service CRUDService<DataModel>.
+    /// You can inherit this class to extend the function, or directly add service: <code>CRUDService&lt;DataModel></code>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class CRUDService<T> 
